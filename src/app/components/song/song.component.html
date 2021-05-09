@@ -1,0 +1,6 @@
+<div class="content ion-activatable" (click)="selectSong()">
+  <img [src]="song.track.album.images[0].url" />
+  <span>{{ song.track.name }}</span>
+
+  <ion-ripple-effect></ion-ripple-effect>
+</div>

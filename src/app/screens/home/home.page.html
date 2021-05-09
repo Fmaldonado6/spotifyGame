@@ -1,0 +1,72 @@
+<ion-content [ngSwitch]="currentStatus">
+  <div
+    class="loaded"
+    *ngSwitchCase="Status.loaded"
+    [ngSwitch]="currentGameStatus"
+  >
+    <div class="exit-container" (click)="logout()">
+      <span>Salir</span>
+      <ion-icon name="exit"></ion-icon>
+    </div>
+    <h1 *ngSwitchCase="GameStatus.playing">¿Cuál es más popular?</h1>
+    <div
+      class="song-container"
+      [@enterTrigger]="'fadeIn'"
+      *ngSwitchCase="GameStatus.playing"
+    >
+      <song (songSelected)="selectSong(1)" [song]="selectedSongs.song1"></song>
+      <song (songSelected)="selectSong(2)" [song]="selectedSongs.song2"></song>
+    </div>
+    <div
+      [@enterTrigger]="'fadeIn'"
+      class="answer"
+      *ngSwitchCase="GameStatus.correctAnswer"
+    >
+      <h1>Correcto!</h1>
+
+      <ion-icon class="correct-answer" name="checkmark"></ion-icon>
+    </div>
+
+    <div
+      [@enterTrigger]="'fadeIn'"
+      class="answer"
+      *ngSwitchCase="GameStatus.wrongAnswer"
+    >
+      <h1>Juego terminado!</h1>
+      <h4>Puntuacion: {{score}}</h4>
+      <h4>Respuesta correcta:</h4>
+      <song [song]="correctAnswer"></song>
+
+      <div class="answer-container"></div>
+
+      <ion-button expand="block" shape="round" (click)="reset()">
+        Reintentar
+      </ion-button>
+    </div>
+  </div>
+
+  <div class="loading" *ngSwitchCase="Status.loading">
+    <ion-spinner color="primary"></ion-spinner>
+  </div>
+
+  <div class="loading" *ngSwitchCase="Status.error">
+    <error
+      title="Ocurrió un error al obtener las canciones"
+      (clickEvent)="retry()"
+    ></error>
+  </div>
+  <ul class="background">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</ion-content>

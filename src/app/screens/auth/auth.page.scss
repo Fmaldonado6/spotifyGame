@@ -1,0 +1,33 @@
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  h1 {
+    font-size: 24px;
+    text-align: center;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--ion-color-medium);
+  }
+
+  ion-card {
+      margin-top: 50px;
+    border-radius: 10px;
+    padding: 20px;
+    color: var(--ion-text-color);
+    -webkit-box-shadow: 0px 14px 24px 0px rgba(0, 0, 0, 0.39);
+    -moz-box-shadow: 0px 14px 24px 0px rgba(0, 0, 0, 0.39);
+    box-shadow: 0px 14px 24px 0px rgba(0, 0, 0, 0.39);
+  }
+
+  ion-button {
+    --background: rgb(103, 189, 103);
+  }
+
+  p {
+    margin: 30px;
+    text-align: center;
+  }
+}
