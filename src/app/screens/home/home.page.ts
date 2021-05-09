@@ -41,6 +41,7 @@ export class HomePage implements OnInit {
   }
 
   refreshToken() {
+    this.currentStatus = Status.loading
     if (this.spotifyService.requiresRefresh())
       this.spotifyService.refreshToken().subscribe(e => {
         this.getSongs()
@@ -69,7 +70,7 @@ export class HomePage implements OnInit {
 
   retry() {
     this.currentStatus = Status.loading
-    this.getSongs()
+    this.refreshToken()
   }
 
   reset() {
