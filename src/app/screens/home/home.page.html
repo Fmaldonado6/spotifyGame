@@ -9,7 +9,11 @@
       <ion-icon name="exit"></ion-icon>
     </div>
     <h1 *ngSwitchCase="GameStatus.playing">¿Cuál es más popular?</h1>
-    <span class="score">Puntuación: {{score}}</span>
+    <span
+      class="score"
+      *ngIf="currentGameStatus == GameStatus.playing ||currentGameStatus ==  GameStatus.correctAnswer"
+      >Puntuación: {{score}}</span
+    >
     <div
       class="song-container"
       [@enterTrigger]="'fadeIn'"

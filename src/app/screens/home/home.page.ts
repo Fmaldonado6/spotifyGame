@@ -45,13 +45,14 @@ export class HomePage implements OnInit {
     if (this.spotifyService.requiresRefresh())
       this.spotifyService.refreshToken().subscribe(e => {
         this.getSongs()
+      },(e)=>{
+        console.log(e)
       })
     else
       this.getSongs()
   }
 
   getSongs() {
-    this.currentStatus = Status.loading
     this.spotifyService.getUserSongs().subscribe(e => {
       this.getRandomSong()
     }, () => {
@@ -62,7 +63,7 @@ export class HomePage implements OnInit {
 
   getRandomSong() {
     if (this.spotifyService.currentSongs.length == 0)
-      return this.getSongs()
+      return this.refreshToken()
     this.currentGameStatus = GameStatus.playing
     this.selectedSongs = this.spotifyService.getRandomSongs()
     this.currentStatus = Status.loaded
@@ -70,7 +71,7 @@ export class HomePage implements OnInit {
 
   retry() {
     this.currentStatus = Status.loading
-    this.refreshToken()
+    this.getRandomSong()
   }
 
   reset() {
