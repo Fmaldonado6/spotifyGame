@@ -90,8 +90,6 @@ export class SpotifyService extends DataService {
 
 
   getUserSongs() {
-
-    console.log(this.access_token)
     const headers = {
       headers: new HttpHeaders().set('Authorization', 'Bearer ' + this.access_token)
     }
@@ -107,7 +105,7 @@ export class SpotifyService extends DataService {
   getRandomSongs(): SelectedSongs {
     const firstNumber = this.getRandomIndex()
     const firstSong = this.currentSongs.splice(firstNumber, 1).pop()
-    let secondNumber
+    let secondNumber: number
     while (true) {
       secondNumber = this.getRandomIndex()
       if (secondNumber != firstNumber)

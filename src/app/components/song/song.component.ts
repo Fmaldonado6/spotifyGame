@@ -14,7 +14,6 @@ export class SongComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.song)
   }
 
   selectSong() {
