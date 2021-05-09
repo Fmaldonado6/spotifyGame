@@ -10,7 +10,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "ng deploy --base-href=https://fmaldonado6.github.io/guessThePopularSong/"
+    "deploy": "ng deploy --base-href=https://fmaldonado6.github.io/spotifyGame/"
 
   },
   "private": true,

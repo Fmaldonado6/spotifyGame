@@ -9,6 +9,7 @@
       <ion-icon name="exit"></ion-icon>
     </div>
     <h1 *ngSwitchCase="GameStatus.playing">¿Cuál es más popular?</h1>
+    <span class="score">Puntuación: {{score}}</span>
     <div
       class="song-container"
       [@enterTrigger]="'fadeIn'"
@@ -33,7 +34,7 @@
       *ngSwitchCase="GameStatus.wrongAnswer"
     >
       <h1>Juego terminado!</h1>
-      <h4>Puntuacion: {{score}}</h4>
+      <h4>Puntuación: {{score}}</h4>
       <h4>Respuesta correcta:</h4>
       <song [song]="correctAnswer"></song>
 
